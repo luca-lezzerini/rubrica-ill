@@ -1,0 +1,30 @@
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ContatoreRequest } from './contatore-request';
+import { ContatoreResponse } from './contatore-response';
+import { Contatto } from './contatto';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  contatti: Contatto[] = [];
+  nome: string;
+  cognome: string;
+  telefono: string;
+  constructor(private http: HttpClient) { }
+
+  inserisci() {
+    let rub = new ContatoreRequest();
+    rub.nome = this.nome;
+    rub.cognome = this.cognome;
+    rub.telefono = this.telefono;
+    let oss: Observable<ContatoreResponse[]>;
+    oss = this.http.post<ContatoreResponse[]>("http://localhost:8080/rubricagg", rub);
+    oss.subscribe(r => this.contatti = r)
+  }
+
+}
