@@ -1,6 +1,5 @@
+import { Contatto } from "./contatto";
+
 export class RubricaResponse {
-    id = 0;
-    nome = "";
-    cognome = "";
-    telefono = "";
+ contatto: Contatto[]=[];
 }

@@ -1,5 +1,5 @@
 export class RubricaRequest {
-    id = 0;
+    ID = 0;
     nome = "";
     cognome = "";
     telefono = "";

@@ -2,5 +2,5 @@ export class Contatto {
     nome = "";
     cognome = "";
     telefono = "";
-    id = 0;
+    ID = 0;
 }

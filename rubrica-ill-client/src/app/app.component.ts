@@ -11,7 +11,7 @@ import { Contatto } from './contatto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contatti: Contatto[] = [];
+  contatti: RubricaResponse[] = [];
   nome: string;
   cognome: string;
   telefono: string;
@@ -23,6 +23,7 @@ export class AppComponent {
     rub.nome = this.nome;
     rub.cognome = this.cognome;
     rub.telefono = this.telefono;
+    rub.ID=this.ID;
     let oss: Observable<RubricaResponse[]>;
     oss = this.http.post<RubricaResponse[]>("http://localhost:8080/rubricagg", rub);
     oss.subscribe(r => this.contatti = r)
