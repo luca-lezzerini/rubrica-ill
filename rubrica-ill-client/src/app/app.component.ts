@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RubricaRequest } from './rubrica-request';
+import { RubricaResponse } from './rubrica-response';
+import { Contatto } from './contatto';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rubrica-ill-client';
+  contatti: Contatto[] = [];
+  nome: string;
+  cognome: string;
+  telefono: string;
+  constructor(private http: HttpClient) { }
+
+  inserisci() {
+    let rub = new RubricaRequest();
+    rub.nome = this.nome;
+    rub.cognome = this.cognome;
+    rub.telefono = this.telefono;
+    let oss: Observable<RubricaResponse[]>;
+    oss = this.http.post<RubricaResponse[]>("http://localhost:8080/rubricagg", rub);
+    oss.subscribe(r => this.contatti = r)
+  }
+
 }

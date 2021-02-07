@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "rubrica-ill-client"
+  "defaultProject": "rubrica-ill-client",
+  "cli": {
+    "analytics": false
+  }
 }
