@@ -40,4 +40,23 @@ public class RubricaIllController {
         System.out.println("Restituisco dto " + rubrica);
         return rubrica;
     }
+
+    @RequestMapping("/rubricasvu")
+    @ResponseBody
+    public List<RubricaResponse> svuota(@RequestBody RubricaRequest dto) {
+        System.out.println("Ricevuto dto " + dto);
+        ID = 0;
+        rubrica.clear();
+        System.out.println("Restituisco dto " + rubrica);
+        return rubrica;
+    }
+
+    @RequestMapping("/rubricalis")
+    @ResponseBody
+    public List<RubricaResponse> ritornaLista(@RequestBody RubricaRequest dto) {
+        System.out.println("Ricevuto dto " + dto);
+        System.out.println("Restituisco dto " + rubrica);
+        return rubrica;
+    }
+
 }
