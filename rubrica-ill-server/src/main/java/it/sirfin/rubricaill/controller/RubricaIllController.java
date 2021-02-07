@@ -21,7 +21,7 @@ public class RubricaIllController {
 
     List<RubricaResponse> rubrica = new ArrayList<>();
 
-    int con = 0;
+    int ID = 0;
 
     @RequestMapping("/rubricagg")
     @ResponseBody
@@ -30,12 +30,12 @@ public class RubricaIllController {
         String n = dto.getNome();
         String c = dto.getCognome();
         String t = dto.getTelefono();
-        con++;
+        ID++;
         RubricaResponse r = new RubricaResponse();
         r.setNome(n);
         r.setCognome(c);
         r.setTelefono(t);
-        r.setID(con);
+        r.setID(ID);
         rubrica.add(r);
         System.out.println("Restituisco dto " + rubrica);
         return rubrica;

@@ -5,7 +5,7 @@ Cognome
 Telefono
 <input type="text" [(ngModel)]="telefono">
 <button (click)="inserisci()">Inserisci</button>
-<table *ngIf="contatti.length >0">
+<table *ngIf="contatti.length >0" id="tab">
     <tr>
         <th>ID</th>
         <th>Nome</th>
@@ -13,6 +13,9 @@ Telefono
         <th>Telefono</th>
     </tr>
     <tr *ngFor="let x of contatti">
-        <td>{{x.risultato}}</td>
+        <td>{{x.ID}}</td>
+        <td>{{x.nome}}</td>
+        <td>{{x.cognome}}</td>
+        <td>{{x.telefono}}</td>
     </tr>
 </table>

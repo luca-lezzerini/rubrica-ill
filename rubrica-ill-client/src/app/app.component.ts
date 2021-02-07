@@ -15,6 +15,7 @@ export class AppComponent {
   nome: string;
   cognome: string;
   telefono: string;
+  ID:number;
   constructor(private http: HttpClient) { }
 
   inserisci() {
