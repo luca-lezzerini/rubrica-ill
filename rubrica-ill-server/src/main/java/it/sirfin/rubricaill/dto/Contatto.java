@@ -5,62 +5,29 @@
  */
 package it.sirfin.rubricaill.dto;
 
+import java.util.List;
+
 /**
  *
  * @author Palo
  */
 public class Contatto {
 
-    private String nome;
-    private String cognome;
-    private String telefono;
-    private int ID;
+    List<ContattoReq> contatto;
+
+    public Contatto(List<ContattoReq> contatto) {
+        this.contatto = contatto;
+    }
 
     public Contatto() {
     }
 
-    public Contatto(String nome, String cognome, String telefono, int ID) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.telefono = telefono;
-        this.ID = ID;
+    public List<ContattoReq> getContatto() {
+        return contatto;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    @Override
-    public String toString() {
-        return "RubricaResponse{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
+    public void setContatto(List<ContattoReq> contatto) {
+        this.contatto = contatto;
     }
 
 }
