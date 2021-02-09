@@ -5,9 +5,10 @@
  */
 package it.sirfin.rubricaill.controller;
 
+import it.sirfin.rubricaill.dto.Contatto;
 import it.sirfin.rubricaill.dto.ContattoReq;
-import java.util.ArrayList;
-import java.util.List;
+import it.sirfin.rubricaill.service.RubricaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,44 +19,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RubricaIllController {
 
-    List<ContattoReq> rubrica = new ArrayList<>();
-
-    int contatore = 0;
+    @Autowired
+    RubricaService rubricaService;
 
     @RequestMapping("/rubricagg")
     @ResponseBody
-    public List<ContattoReq> rubricaAgg(@RequestBody ContattoReq Contatto) {
-        Contatto.setID(contatore);
-        this.rubrica.add(Contatto);
-        contatore++;
-        return this.rubrica;
-    }
-
-    @RequestMapping("/rubricasvu")
-    @ResponseBody
-    public List<ContattoReq> rubricaSvuota() {
-        this.rubrica = new ArrayList();
-        this.contatore = 0;
-        return this.rubrica;
-    }
-
-    @RequestMapping("/rubricalis")
-    @ResponseBody
-    public List<ContattoReq> ritornaLista() {
-        return this.rubrica;
+    public Contatto rubricaAgg(@RequestBody ContattoReq reqDto) {
+        Contatto ins = new Contatto(rubricaService.rubricaAgg(reqDto));
+        return ins;
     }
 
     @RequestMapping("/rubricarem")
     @ResponseBody
-    public List<ContattoReq> cancellaPerID(@RequestBody ContattoReq dto) {
-        System.out.println("Elemento da rimuovere" + dto);
-        try {
-            this.rubrica.removeIf(r -> r.getID() == dto.getID());
-            System.out.println("Elemento cancellato");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return this.rubrica;
+    public Contatto cancellaPerID(@RequestBody ContattoReq reqDto) {
+        Contatto rem = new Contatto(rubricaService.cancellaPerID(reqDto));
+        return rem;
+    }
+
+    @RequestMapping("/rubricasvu")
+    @ResponseBody
+    public Contatto rubricaSvuota() {
+        Contatto svu = new Contatto(rubricaService.rubricaSvuota());
+        return svu;
+    }
+
+    @RequestMapping("/rubricalis")
+    @ResponseBody
+    public Contatto ritornaLista() {
+        Contatto list = new Contatto(rubricaService.ritornaLista());
+        return list;
     }
 
 }

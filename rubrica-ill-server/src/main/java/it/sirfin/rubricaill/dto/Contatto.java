@@ -7,10 +7,6 @@ package it.sirfin.rubricaill.dto;
 
 import java.util.List;
 
-/**
- *
- * @author Palo
- */
 public class Contatto {
 
     List<ContattoReq> contatto;
