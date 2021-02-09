@@ -60,6 +60,7 @@ public class ContattoReq {
 
     @Override
     public String toString() {
-        return "RubricaRequest{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
+        return "ContattoReq{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
     }
+
 }
