@@ -14,24 +14,24 @@ public class ContattoReq {
     private String nome;
     private String cognome;
     private String telefono;
-    private int ID;
+    private int id;
 
     public ContattoReq() {
     }
 
-    public ContattoReq(String nome, String cognome, String telefono, int ID) {
+    public ContattoReq(String nome, String cognome, String telefono, int id) {
         this.nome = nome;
         this.cognome = cognome;
         this.telefono = telefono;
-        this.ID = ID;
+        this.id = id;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -60,7 +60,7 @@ public class ContattoReq {
 
     @Override
     public String toString() {
-        return "ContattoReq{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
+        return "ContattoReq{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + id + '}';
     }
 
 }

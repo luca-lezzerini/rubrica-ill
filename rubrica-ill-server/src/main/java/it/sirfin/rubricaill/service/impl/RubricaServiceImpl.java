@@ -19,7 +19,7 @@ public class RubricaServiceImpl implements RubricaService {
 
     @Override
     public List<ContattoReq> rubricaAgg(ContattoReq contatto) {
-        contatto.setID(contatoreId);
+        contatto.setId(contatoreId);
         rubrica.add(contatto);
         contatoreId++;
         return rubrica;
@@ -28,7 +28,7 @@ public class RubricaServiceImpl implements RubricaService {
 
     @Override
     public List<ContattoReq> cancellaPerID(ContattoReq contatto) {
-        rubrica.removeIf(r -> r.getID() == contatto.getID());
+        rubrica.removeIf(r -> r.getId() == contatto.getId());
         return rubrica;
     }
 
