@@ -5,8 +5,7 @@
  */
 package it.sirfin.rubricaill.controller;
 
-import it.sirfin.rubricaill.dto.RubricaRequest;
-import it.sirfin.rubricaill.dto.RubricaResponse;
+import it.sirfin.rubricaill.dto.ContattoReq;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,44 +18,44 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RubricaIllController {
 
-    List<RubricaResponse> rubrica = new ArrayList<>();
+    List<ContattoReq> rubrica = new ArrayList<>();
 
-    int ID = 0;
+    int contatore = 0;
 
     @RequestMapping("/rubricagg")
     @ResponseBody
-    public List<RubricaResponse> rubrica(@RequestBody RubricaRequest dto) {
-        System.out.println("Ricevuto dto " + dto);
-        String n = dto.getNome();
-        String c = dto.getCognome();
-        String t = dto.getTelefono();
-        ID++;
-        RubricaResponse r = new RubricaResponse();
-        r.setNome(n);
-        r.setCognome(c);
-        r.setTelefono(t);
-        r.setID(ID);
-        rubrica.add(r);
-        System.out.println("Restituisco dto " + rubrica);
-        return rubrica;
+    public List<ContattoReq> rubricaAgg(@RequestBody ContattoReq Contatto) {
+        Contatto.setID(contatore);
+        this.rubrica.add(Contatto);
+        contatore++;
+        return this.rubrica;
     }
 
     @RequestMapping("/rubricasvu")
     @ResponseBody
-    public List<RubricaResponse> svuota(@RequestBody RubricaRequest dto) {
-        System.out.println("Ricevuto dto " + dto);
-        ID = 0;
-        rubrica.clear();
-        System.out.println("Restituisco dto " + rubrica);
-        return rubrica;
+    public List<ContattoReq> rubricaSvuota() {
+        this.rubrica = new ArrayList();
+        this.contatore = 0;
+        return this.rubrica;
     }
 
     @RequestMapping("/rubricalis")
     @ResponseBody
-    public List<RubricaResponse> ritornaLista(@RequestBody RubricaRequest dto) {
-        System.out.println("Ricevuto dto " + dto);
-        System.out.println("Restituisco dto " + rubrica);
-        return rubrica;
+    public List<ContattoReq> ritornaLista() {
+        return this.rubrica;
+    }
+
+    @RequestMapping("/rubricarem")
+    @ResponseBody
+    public List<ContattoReq> cancellaPerID(@RequestBody ContattoReq dto) {
+        System.out.println("Elemento da rimuovere" + dto);
+        try {
+            this.rubrica.removeIf(r -> r.getID() == dto.getID());
+            System.out.println("Elemento cancellato");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return this.rubrica;
     }
 
 }

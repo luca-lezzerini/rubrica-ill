@@ -9,17 +9,17 @@ package it.sirfin.rubricaill.dto;
  *
  * @author Palo
  */
-public class RubricaResponse {
+public class ContattoReq {
 
     private String nome;
     private String cognome;
     private String telefono;
     private int ID;
 
-    public RubricaResponse() {
+    public ContattoReq() {
     }
 
-    public RubricaResponse(String nome, String cognome, String telefono, int ID) {
+    public ContattoReq(String nome, String cognome, String telefono, int ID) {
         this.nome = nome;
         this.cognome = cognome;
         this.telefono = telefono;
@@ -60,7 +60,6 @@ public class RubricaResponse {
 
     @Override
     public String toString() {
-        return "RubricaResponse{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
+        return "RubricaRequest{" + "nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + ", ID=" + ID + '}';
     }
-
 }
