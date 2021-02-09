@@ -26,4 +26,9 @@ public class Contatto {
         this.contatto = contatto;
     }
 
+    @Override
+    public String toString() {
+        return "Contatto{" + "contatto=" + contatto + '}';
+    }
+
 }
