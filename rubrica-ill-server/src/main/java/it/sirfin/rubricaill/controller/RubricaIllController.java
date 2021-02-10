@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class RubricaIllController {
 
     /**
-     * Con @Autowired definisco il punto di iniezione del servizio.
+     * Con @Autowired inietto l'implementazione.
      */
     @Autowired
     RubricaService rubricaService;

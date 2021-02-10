@@ -9,7 +9,7 @@ import it.sirfin.rubricaill.dto.ContattoReq;
 import java.util.List;
 
 /**
- * Interfaccia per l'iniezione dei servizi
+ * Definisce l'interfaccia della dipendenza da iniettare
  */
 public interface RubricaService {
 
