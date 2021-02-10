@@ -1,3 +1,4 @@
+<h1>Rubrica Telefonica</h1>
 <input type="text" placeholder="Nome" [(ngModel)]="contatto.nome">
 <input type="text" placeholder="Cognome" [(ngModel)]="contatto.cognome">
 <input type="text" placeholder="Telefono" [(ngModel)]="contatto.telefono">
@@ -6,7 +7,9 @@
 <button (click)="rubricaLista()">Mostra Lista Contatti</button>
 <button (click)="rubricaSvuota()">Svuota Lista Contatti</button>
 
-
+<br>
+<br>
+<hr>
 <table *ngIf="rubrica.length > 0 and stato==''" id="table">
     <tr>
         <th>ID</th>

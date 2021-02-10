@@ -1,1 +1,2 @@
-.tab table,td,th,tr {border: 1px solid black}
+.tab table,td,th,tr {border: 1px solid black; text-align: center;}
+.tab table,th {background-color: rgb(226, 226, 226);}
