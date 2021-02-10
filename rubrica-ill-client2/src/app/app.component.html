@@ -1,15 +1,13 @@
-<input type="text" [(ngModel)]="contatto.nome">nome
-<br>
-<input type="text" [(ngModel)]="contatto.cognome">cognome
-<br>
-<input type="text" [(ngModel)]="contatto.telefono">telefono
+<input type="text" [(ngModel)]="contatto.nome">Nome
+<input type="text" [(ngModel)]="contatto.cognome">Cognome
+<input type="text" [(ngModel)]="contatto.telefono">Telefono
 
-<button (click)="rubricaAgg()">inserisci</button>
-<button (click)="rubricaLista()">lista</button>
-<button (click)="rubricaSvuota()">svuota</button>
+<button (click)="rubricaAgg()">Aggiungi Contatto</button>
+<button (click)="rubricaLista()">Mostra Lista Contatti</button>
+<button (click)="rubricaSvuota()">Svuota Lista Contatti</button>
 
 
-<table *ngIf="rubrica.length > 0">
+<table *ngIf="rubrica.length > 0" id="table">
     <tr>
         <th>id</th>
         <th>nome</th>
@@ -22,6 +20,6 @@
         <td>{{x.nome}}</td>
         <td>{{x.cognome}}</td>
         <td>{{x.telefono}}</td>
-        <td> <button (click)="elimina(i)">elimina</button></td>
+        <td> <button (click)="eliminaPerId(i)">elimina</button></td>
     </tr>
 </table>

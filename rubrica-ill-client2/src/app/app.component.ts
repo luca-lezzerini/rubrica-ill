@@ -19,14 +19,15 @@ export class AppComponent {
   constructor(private http: HttpClient) { }
 
   rubricaAgg() {
-
-    let ox: Observable<RubricaResponse> = this.http
-      .post<RubricaResponse>("http://localhost:8080/rubricagg",
-        this.contatto);
-    ox.subscribe(r => {
-      this.rubrica = r.contatto;
-      this.contatto = new RubricaRequest;
-    });
+    if (this.contatto.nome != null && this.contatto.cognome != null && this.contatto.telefono != null) {
+      let ox: Observable<RubricaResponse> = this.http
+        .post<RubricaResponse>("http://localhost:8080/rubricagg",
+          this.contatto);
+      ox.subscribe(r => {
+        this.rubrica = r.contatto;
+        this.contatto = new RubricaRequest;
+      });
+    }
   }
 
   rubricaLista() {
@@ -39,7 +40,7 @@ export class AppComponent {
     oss.subscribe(r => this.rubrica = r.contatto);
   }
 
-  elimina(i: number) {
+  eliminaPerId(i: number) {
     this.indice = i;
     let oss = this.http.post<RubricaResponse>("http://localhost:8080/rubricarem", this.rubrica[this.indice]);
     oss.subscribe(r => {
