@@ -10,16 +10,17 @@ import { RubricaResponse } from './rubrica-response';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  stato: string = "";
   contatto: RubricaRequest = new RubricaRequest();
   rubrica: RubricaRequest[] = [];
   indice: number;
-
+  error: string;
 
   constructor(private http: HttpClient) { }
 
   rubricaAgg() {
     if (this.contatto.nome != null && this.contatto.cognome != null && this.contatto.telefono != null) {
+      this.stato = "";
       let ox: Observable<RubricaResponse> = this.http
         .post<RubricaResponse>("http://localhost:8080/rubricagg",
           this.contatto);
@@ -27,6 +28,10 @@ export class AppComponent {
         this.rubrica = r.contatto;
         this.contatto = new RubricaRequest;
       });
+    }
+    else {
+      this.stato = "errore";
+      this.error = "Tutti i campi sono obbligatori";
     }
   }
 
