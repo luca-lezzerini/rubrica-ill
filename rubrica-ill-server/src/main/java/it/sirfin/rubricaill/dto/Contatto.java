@@ -7,6 +7,10 @@ package it.sirfin.rubricaill.dto;
 
 import java.util.List;
 
+/**
+ * Creazione classe contatto, creazione arraylist di contatto req con
+ * costruttori e metodi getter e setter
+ */
 public class Contatto {
 
     List<ContattoReq> contatto;

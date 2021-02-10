@@ -15,6 +15,9 @@ import it.sirfin.rubricaill.dto.ContattoReq;
 import it.sirfin.rubricaill.service.RubricaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * Creazione classe Controller
+ */
 @CrossOrigin("*")
 @RestController
 public class RubricaIllController {
