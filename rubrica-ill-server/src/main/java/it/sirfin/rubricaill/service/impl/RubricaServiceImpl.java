@@ -12,21 +12,26 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
- * Iniezione dei Servizi.
+ * Implementazione dei Servizi.
  */
 @Service
+
+/**
+ * Creazione classe che implementa l'interfaccia.
+ */
 public class RubricaServiceImpl implements RubricaService {
 
     int contatoreId = 0;
     List<ContattoReq> rubrica = new ArrayList<>();
 
     /**
-     * Metodo rubricaAgg()
-     * Il metodo inserisce il contatto nella rubrica.
-     * Con l'utilizzo di .setId inserisco dentro l'oggetto contatto il valore
-     * dell'Id e con add lo aggiungo alla rubrica (arraylist).
+     * Metodo rubricaAgg() Il metodo inserisce il contatto nella rubrica. Con
+     * l'utilizzo di .setId() si inserisce nel campo id di contatto il valore di
+     * contatoreid (da incrementare) e con add viene aggiunto all'arraylist.
+     *
+     * @param contatto
+     * @return
      */
-    
     @Override
     public List<ContattoReq> rubricaAgg(ContattoReq contatto) {
         contatto.setId(contatoreId);
@@ -35,34 +40,38 @@ public class RubricaServiceImpl implements RubricaService {
         return rubrica;
 
     }
-       /**
-         *  Utilizzo del metodo getter. Il metodo all'interno della classe
-         *  serve a rimuovere il contatto dalla rubrica che ha l'Id uguale
-         *  all'Id dell'oggetto ricevuto come richiesta.
-         */
-    
+
+    /**
+     * Si utilizza .removeIf() per rimuovere il contatto della rubrica che ha
+     * l'id uguale all'id del contatto ricevuto come request.
+     *
+     * @param contatto
+     * @return
+     */
     @Override
     public List<ContattoReq> cancellaPerID(ContattoReq contatto) {
         rubrica.removeIf(r -> r.getId() == contatto.getId());
         return rubrica;
     }
-       /**
-         * Utilizzo del metodo clear nell'arraylist. Rimuove tutti
-         * gli elementi dalla lista.
-         */
 
+    /**
+     * Metodo rubricaSvuota(). Si utilizza .clear() per rimuove tutti gli
+     * elementi dalla lista.
+     *
+     * @return
+     */
     @Override
     public List<ContattoReq> rubricaSvuota() {
         rubrica.clear();
         contatoreId = 0;
         return rubrica;
     }
-       /**
-         * L'utilizzo di tale metodo serve a tornare sulla rubrica
-         * per poi mostrarla.
-         *
-         */
 
+    /**
+     * ritornaLista() serve a ritornare la rubrica per mostrarla.
+     *
+     * @return
+     */
     @Override
     public List<ContattoReq> ritornaLista() {
         return rubrica;

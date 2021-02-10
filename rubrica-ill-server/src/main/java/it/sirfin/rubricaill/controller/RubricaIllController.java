@@ -16,15 +16,24 @@ import it.sirfin.rubricaill.service.RubricaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Creazione classe Controller
+ * Creazione classe Controller.
  */
 @CrossOrigin("*")
 @RestController
 public class RubricaIllController {
 
+    /**
+     * Con @Autowired definisco il punto di iniezione del servizio.
+     */
     @Autowired
     RubricaService rubricaService;
 
+    /**
+     * Metodo rubricaAgg() che utilizza il servizio per inserire nuovi contatti.
+     *
+     * @param reqDto
+     * @return
+     */
     @RequestMapping("/rubricagg")
     @ResponseBody
     public Contatto rubricaAgg(@RequestBody ContattoReq reqDto) {
@@ -32,6 +41,13 @@ public class RubricaIllController {
         return ins;
     }
 
+    /**
+     * Metodo cancellaPerID() che utilizza il servizio per cancellare i contatti
+     * per id.
+     *
+     * @param reqDto
+     * @return
+     */
     @RequestMapping("/rubricarem")
     @ResponseBody
     public Contatto cancellaPerID(@RequestBody ContattoReq reqDto) {
@@ -39,6 +55,11 @@ public class RubricaIllController {
         return rem;
     }
 
+    /**
+     * Metodo rubricaSvuota() che utilizza il servizio per svuotare la rubrica
+     *
+     * @return
+     */
     @RequestMapping("/rubricasvu")
     @ResponseBody
     public Contatto rubricaSvuota() {
@@ -46,6 +67,11 @@ public class RubricaIllController {
         return svu;
     }
 
+    /**
+     * Metodo ritornaLista() hce utilizza il servizio per mostrare la lista.
+     *
+     * @return
+     */
     @RequestMapping("/rubricalis")
     @ResponseBody
     public Contatto ritornaLista() {

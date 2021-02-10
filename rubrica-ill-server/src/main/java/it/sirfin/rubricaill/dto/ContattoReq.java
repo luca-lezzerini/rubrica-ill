@@ -6,13 +6,8 @@
 package it.sirfin.rubricaill.dto;
 
 /**
- *
- * @author Palo
- */
-
-/**
- * Creazione classe ContattoReq con proprietà private, costruttori,
- * metodi getter e setter
+ * Creazione classe ContattoReq con proprietà private, costruttori, metodi
+ * getter e setter
  */
 public class ContattoReq {
 

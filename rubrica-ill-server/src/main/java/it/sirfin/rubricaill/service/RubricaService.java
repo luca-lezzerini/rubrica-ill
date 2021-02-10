@@ -8,6 +8,9 @@ package it.sirfin.rubricaill.service;
 import it.sirfin.rubricaill.dto.ContattoReq;
 import java.util.List;
 
+/**
+ * Interfaccia per l'iniezione dei servizi
+ */
 public interface RubricaService {
 
     List<ContattoReq> rubricaAgg(ContattoReq reqDto);
