@@ -37,8 +37,7 @@ public class RubricaIllController {
     @RequestMapping("/rubricagg")
     @ResponseBody
     public ContattoRes rubricaAgg(@RequestBody ContattoReq reqDto) {
-        ContattoRes ins = new ContattoRes(rubricaService.rubricaAgg(reqDto));
-        return ins;
+        return rubricaService.inizializzazioneAggiungi(reqDto);
     }
 
     /**
@@ -51,8 +50,7 @@ public class RubricaIllController {
     @RequestMapping("/rubricarem")
     @ResponseBody
     public ContattoRes cancellaPerID(@RequestBody ContattoReq reqDto) {
-        ContattoRes rem = new ContattoRes(rubricaService.cancellaPerID(reqDto));
-        return rem;
+        return rubricaService.inizializzazioneCancella(reqDto);
     }
 
     /**
@@ -63,8 +61,7 @@ public class RubricaIllController {
     @RequestMapping("/rubricasvu")
     @ResponseBody
     public ContattoRes rubricaSvuota() {
-        ContattoRes svu = new ContattoRes(rubricaService.rubricaSvuota());
-        return svu;
+        return rubricaService.inizializzazioneSvuota();
     }
 
     /**
@@ -75,8 +72,7 @@ public class RubricaIllController {
     @RequestMapping("/rubricalis")
     @ResponseBody
     public ContattoRes ritornaLista() {
-        ContattoRes list = new ContattoRes(rubricaService.ritornaLista());
-        return list;
+        return rubricaService.inizializzazioneLista();
     }
 
 }

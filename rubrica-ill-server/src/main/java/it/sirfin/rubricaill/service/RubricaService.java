@@ -1,6 +1,6 @@
-
 package it.sirfin.rubricaill.service;
 
+import it.sirfin.rubricaill.dto.ContattoRes;
 import it.sirfin.rubricaill.model.ContattoReq;
 import java.util.List;
 
@@ -17,4 +17,11 @@ public interface RubricaService {
 
     List<ContattoReq> ritornaLista();
 
+    ContattoRes inizializzazioneAggiungi(ContattoReq reqDto);
+
+    ContattoRes inizializzazioneCancella(ContattoReq reqDto);
+
+    ContattoRes inizializzazioneSvuota();
+
+    ContattoRes inizializzazioneLista();
 }

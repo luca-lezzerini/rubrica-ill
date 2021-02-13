@@ -15,7 +15,6 @@ public class ContattoReq implements Serializable {
 
     @Id
     @GeneratedValue
-
     private Long Id;
 
     @Column
@@ -72,5 +71,5 @@ public class ContattoReq implements Serializable {
     public String toString() {
         return "ContattoReq{" + "Id=" + Id + ", cognome=" + cognome + ", nome=" + nome + ", telefono=" + telefono + '}';
     }
-    
+
 }

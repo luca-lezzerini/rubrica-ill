@@ -753,3 +753,41 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2021-02-13 11:25:56.144 TRACE 9256 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [dsvd]
 2021-02-13 11:25:56.144 TRACE 9256 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [vds]
 2021-02-13 11:25:56.144 TRACE 9256 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [5]
+2021-02-13 16:55:45.987 DEBUG 9348 --- [main] org.hibernate.SQL                        : create table contatto_req (id bigint not null, cognome varchar(255), nome varchar(255), telefono varchar(255), primary key (id)) engine=InnoDB
+2021-02-13 16:55:46.012 DEBUG 9348 --- [main] org.hibernate.SQL                        : create table hibernate_sequence (next_val bigint) engine=InnoDB
+2021-02-13 16:55:46.034 DEBUG 9348 --- [main] org.hibernate.SQL                        : insert into hibernate_sequence values ( 1 )
+2021-02-13 16:55:46.245  WARN 9348 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-13 16:56:23.025 DEBUG 9348 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2021-02-13 16:56:23.034 DEBUG 9348 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2021-02-13 16:56:23.052 DEBUG 9348 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into contatto_req (cognome, nome, telefono, id) values (?, ?, ?, ?)
+2021-02-13 16:56:23.053 TRACE 9348 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [DB]
+2021-02-13 16:56:23.054 TRACE 9348 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Maria]
+2021-02-13 16:56:23.054 TRACE 9348 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [16516516]
+2021-02-13 16:56:23.054 TRACE 9348 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [1]
+2021-02-13 16:56:39.391 DEBUG 9348 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2021-02-13 16:56:39.392 DEBUG 9348 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2021-02-13 16:56:39.422 DEBUG 9348 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into contatto_req (cognome, nome, telefono, id) values (?, ?, ?, ?)
+2021-02-13 16:56:39.422 TRACE 9348 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Pisone]
+2021-02-13 16:56:39.423 TRACE 9348 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Calpurnia]
+2021-02-13 16:56:39.423 TRACE 9348 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [31641651]
+2021-02-13 16:56:39.423 TRACE 9348 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2021-02-13 16:56:59.665 DEBUG 9348 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2021-02-13 16:56:59.665 DEBUG 9348 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2021-02-13 16:56:59.671 DEBUG 9348 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : insert into contatto_req (cognome, nome, telefono, id) values (?, ?, ?, ?)
+2021-02-13 16:56:59.672 TRACE 9348 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Signorini]
+2021-02-13 16:56:59.672 TRACE 9348 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Alfonso ]
+2021-02-13 16:56:59.672 TRACE 9348 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [161651651]
+2021-02-13 16:56:59.673 TRACE 9348 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [3]
+2021-02-13 16:57:20.752 DEBUG 9348 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2021-02-13 16:57:20.753 DEBUG 9348 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2021-02-13 16:57:20.759 DEBUG 9348 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : insert into contatto_req (cognome, nome, telefono, id) values (?, ?, ?, ?)
+2021-02-13 16:57:20.759 TRACE 9348 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Pipo]
+2021-02-13 16:57:20.759 TRACE 9348 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [Catullo]
+2021-02-13 16:57:20.760 TRACE 9348 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [1351351]
+2021-02-13 16:57:20.760 TRACE 9348 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [4]
+2021-02-13 16:57:36.221 DEBUG 9348 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select contattore0_.id as id1_0_, contattore0_.cognome as cognome2_0_, contattore0_.nome as nome3_0_, contattore0_.telefono as telefono4_0_ from contatto_req contattore0_
+2021-02-13 16:57:38.114 DEBUG 9348 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select contattore0_.id as id1_0_0_, contattore0_.cognome as cognome2_0_0_, contattore0_.nome as nome3_0_0_, contattore0_.telefono as telefono4_0_0_ from contatto_req contattore0_ where contattore0_.id=?
+2021-02-13 16:57:38.115 TRACE 9348 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2021-02-13 16:57:38.122 DEBUG 9348 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : delete from contatto_req where id=?
+2021-02-13 16:57:38.122 TRACE 9348 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2021-02-13 16:57:46.027 DEBUG 9348 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select contattore0_.id as id1_0_, contattore0_.cognome as cognome2_0_, contattore0_.nome as nome3_0_, contattore0_.telefono as telefono4_0_ from contatto_req contattore0_
