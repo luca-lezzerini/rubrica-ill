@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import it.sirfin.rubricaill.dto.Contatto;
-import it.sirfin.rubricaill.dto.ContattoReq;
+import it.sirfin.rubricaill.dto.ContattoRes;
+import it.sirfin.rubricaill.model.ContattoReq;
 import it.sirfin.rubricaill.service.RubricaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,8 +36,8 @@ public class RubricaIllController {
      */
     @RequestMapping("/rubricagg")
     @ResponseBody
-    public Contatto rubricaAgg(@RequestBody ContattoReq reqDto) {
-        Contatto ins = new Contatto(rubricaService.rubricaAgg(reqDto));
+    public ContattoRes rubricaAgg(@RequestBody ContattoReq reqDto) {
+        ContattoRes ins = new ContattoRes(rubricaService.rubricaAgg(reqDto));
         return ins;
     }
 
@@ -50,8 +50,8 @@ public class RubricaIllController {
      */
     @RequestMapping("/rubricarem")
     @ResponseBody
-    public Contatto cancellaPerID(@RequestBody ContattoReq reqDto) {
-        Contatto rem = new Contatto(rubricaService.cancellaPerID(reqDto));
+    public ContattoRes cancellaPerID(@RequestBody ContattoReq reqDto) {
+        ContattoRes rem = new ContattoRes(rubricaService.cancellaPerID(reqDto));
         return rem;
     }
 
@@ -62,8 +62,8 @@ public class RubricaIllController {
      */
     @RequestMapping("/rubricasvu")
     @ResponseBody
-    public Contatto rubricaSvuota() {
-        Contatto svu = new Contatto(rubricaService.rubricaSvuota());
+    public ContattoRes rubricaSvuota() {
+        ContattoRes svu = new ContattoRes(rubricaService.rubricaSvuota());
         return svu;
     }
 
@@ -74,8 +74,8 @@ public class RubricaIllController {
      */
     @RequestMapping("/rubricalis")
     @ResponseBody
-    public Contatto ritornaLista() {
-        Contatto list = new Contatto(rubricaService.ritornaLista());
+    public ContattoRes ritornaLista() {
+        ContattoRes list = new ContattoRes(rubricaService.ritornaLista());
         return list;
     }
 

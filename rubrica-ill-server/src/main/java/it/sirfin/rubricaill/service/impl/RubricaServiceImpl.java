@@ -5,10 +5,12 @@
  */
 package it.sirfin.rubricaill.service.impl;
 
-import it.sirfin.rubricaill.dto.ContattoReq;
+import it.sirfin.rubricaill.model.ContattoReq;
+import it.sirfin.rubricaill.repository.ContattoRepository;
 import it.sirfin.rubricaill.service.RubricaService;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,7 +23,9 @@ import org.springframework.stereotype.Service;
  */
 public class RubricaServiceImpl implements RubricaService {
 
-    int contatoreId = 0;
+    @Autowired
+    ContattoRepository contattoRepository;
+
     List<ContattoReq> rubrica = new ArrayList<>();
 
     /**
@@ -34,11 +38,8 @@ public class RubricaServiceImpl implements RubricaService {
      */
     @Override
     public List<ContattoReq> rubricaAgg(ContattoReq contatto) {
-        contatto.setId(contatoreId);
-        rubrica.add(contatto);
-        contatoreId++;
+        contattoRepository.save(contatto);
         return rubrica;
-
     }
 
     /**
@@ -50,7 +51,7 @@ public class RubricaServiceImpl implements RubricaService {
      */
     @Override
     public List<ContattoReq> cancellaPerID(ContattoReq contatto) {
-        rubrica.removeIf(r -> r.getId() == contatto.getId());
+        contattoRepository.deleteById(contatto.getId());
         return rubrica;
     }
 
@@ -62,9 +63,9 @@ public class RubricaServiceImpl implements RubricaService {
      */
     @Override
     public List<ContattoReq> rubricaSvuota() {
-        rubrica.clear();
-        contatoreId = 0;
+        contattoRepository.deleteAllInBatch();
         return rubrica;
+
     }
 
     /**
@@ -74,6 +75,8 @@ public class RubricaServiceImpl implements RubricaService {
      */
     @Override
     public List<ContattoReq> ritornaLista() {
-        return rubrica;
+        List<ContattoReq> el = contattoRepository.findAll();
+        return el;
+
     }
 }

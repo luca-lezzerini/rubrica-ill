@@ -5,21 +5,22 @@
  */
 package it.sirfin.rubricaill.dto;
 
+import it.sirfin.rubricaill.model.ContattoReq;
 import java.util.List;
 
 /**
  * Creazione classe contatto, creazione arraylist di Contattoreq con costruttori
  * e metodi getter e setter
  */
-public class Contatto {
+public class ContattoRes {
 
     List<ContattoReq> contatto;
 
-    public Contatto(List<ContattoReq> contatto) {
+    public ContattoRes(List<ContattoReq> contatto) {
         this.contatto = contatto;
     }
 
-    public Contatto() {
+    public ContattoRes() {
     }
 
     public List<ContattoReq> getContatto() {
