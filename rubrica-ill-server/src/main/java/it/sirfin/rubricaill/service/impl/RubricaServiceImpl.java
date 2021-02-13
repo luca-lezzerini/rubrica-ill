@@ -5,7 +5,6 @@
  */
 package it.sirfin.rubricaill.service.impl;
 
-import it.sirfin.rubricaill.dto.ContattoRes;
 import it.sirfin.rubricaill.model.ContattoReq;
 import it.sirfin.rubricaill.repository.ContattoRepository;
 import it.sirfin.rubricaill.service.RubricaService;
@@ -80,23 +79,4 @@ public class RubricaServiceImpl implements RubricaService {
         return el;
 
     }
-
-    @Override
-    public ContattoRes inizializzazioneAggiungi(ContattoReq reqDto) {
-        ContattoRes ins = new ContattoRes(rubricaAgg(reqDto));
-        return ins;
-    }
-
-    @Override
-    public void inizializzazioneCancella() {
-    }
-
-    @Override
-    public void inizializzazioneSvuota() {
-    }
-
-    @Override
-    public void inizializzazioneLista() {
-    }
-
 }

@@ -35,8 +35,10 @@ public class RubricaIllController {
      * @return
      */
     @RequestMapping("/rubricagg")
-    public void rubricaAgg(ContattoReq reqDto) {
-        rubricaService.inizializzazioneAggiungi(reqDto);
+    @ResponseBody
+    public ContattoRes rubricaAgg(@RequestBody ContattoReq reqDto) {
+        ContattoRes ins = new ContattoRes(rubricaService.rubricaAgg(reqDto));
+        return ins;
     }
 
     /**
