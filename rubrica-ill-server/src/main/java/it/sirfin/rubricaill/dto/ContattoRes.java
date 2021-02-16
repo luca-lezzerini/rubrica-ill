@@ -14,26 +14,26 @@ import java.util.List;
  */
 public class ContattoRes {
 
-    List<Contatto> contatto;
+    List<Contatto> listaContatti;
 
     public ContattoRes(List<Contatto> contatto) {
-        this.contatto = contatto;
+        this.listaContatti = contatto;
     }
 
     public ContattoRes() {
     }
 
-    public List<Contatto> getContatto() {
-        return contatto;
+    public List<Contatto> getListaContatti() {
+        return listaContatti;
     }
 
-    public void setContatto(List<Contatto> contatto) {
-        this.contatto = contatto;
+    public void setListaContatti(List<Contatto> listaContatti) {
+        this.listaContatti = listaContatti;
     }
 
     @Override
     public String toString() {
-        return "Contatto{" + "contatto=" + contatto + '}';
+        return "ContattoRes{" + "listaContatti=" + listaContatti + '}';
     }
 
 }

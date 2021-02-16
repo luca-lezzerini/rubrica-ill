@@ -6,11 +6,11 @@
 <button (click)="rubricaAgg()">Aggiungi Contatto</button>
 <button (click)="rubricaLista()">Mostra Lista Contatti</button>
 <button (click)="rubricaSvuota()">Svuota Lista Contatti</button>
-
-<br>
-<br>
 <hr>
-<table *ngIf="rubrica.length > 0 and stato==''" id="table">
+<input type="text" placeholder="Inserisci criterio ricerca" [(ngModel)]="criterio">
+<button (click)="cerca()">Cerca</button>
+<hr>
+<table id="table">
     <tr>
         <th>ID</th>
         <th>Nome</th>
@@ -18,13 +18,11 @@
         <th>Telefono</th>
         <th>Modifica</th>
     </tr>
-    <tr *ngFor="let x of rubrica, index as i ">
+    <tr *ngFor="let x of contatti">
         <td>{{x.id}}</td>
         <td>{{x.nome}}</td>
         <td>{{x.cognome}}</td>
         <td>{{x.telefono}}</td>
-        <td> <button (click)="eliminaPerId(i)">Elimina</button></td>
+        <td> <button (click)="eliminaPerId(x)">Elimina</button></td>
     </tr>
 </table>
-
-<h3 *ngIf="stato=='errore'">{{error}}</h3>

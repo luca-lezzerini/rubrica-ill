@@ -1,6 +1,5 @@
 package it.sirfin.rubricaill.service;
 
-import it.sirfin.rubricaill.dto.ContattoRes;
 import it.sirfin.rubricaill.model.Contatto;
 import java.util.List;
 

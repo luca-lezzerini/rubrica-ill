@@ -1,6 +1,5 @@
+import { Contatto } from "./contatto";
+
 export class RubricaRequest {
-    id: number = null;
-    nome: string;
-    cognome: string;
-    telefono: string;
+    contatto: Contatto;
 }

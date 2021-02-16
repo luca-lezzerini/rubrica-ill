@@ -1,5 +1,5 @@
-import { RubricaRequest } from "./rubrica-request";
+import { Contatto } from "./contatto";
 
 export class RubricaResponse {
-    contatto: RubricaRequest[];
+    listaContatti: Contatto[];
 }

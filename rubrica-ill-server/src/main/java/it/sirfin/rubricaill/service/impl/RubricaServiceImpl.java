@@ -32,7 +32,7 @@ public class RubricaServiceImpl implements RubricaService {
      * l'utilizzo di .setId() si inserisce nel campo id di contatto il valore di
      * contatoreid (da incrementare) e con add viene aggiunto all'arraylist.
      *
-     * @param contatto
+     * @param c
      * @return
      */
     @Override
@@ -45,7 +45,7 @@ public class RubricaServiceImpl implements RubricaService {
      * Si utilizza .removeIf() per rimuovere il contatto della rubrica che ha
      * l'id uguale all'id del contatto ricevuto come request.
      *
-     * @param contatto
+     * @param c
      * @return
      */
     @Override
