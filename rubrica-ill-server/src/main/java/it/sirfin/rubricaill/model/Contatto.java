@@ -7,15 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Creazione classe ContattoReq con proprietà private, costruttori, metodi
- * getter e setter
+ * Creazione classe Contatto con proprietà private, costruttori, metodi
+ getter e setter
  */
 @Entity
-public class ContattoReq implements Serializable {
+public class Contatto implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     @Column
     private String cognome;
@@ -26,21 +26,21 @@ public class ContattoReq implements Serializable {
     @Column
     private String telefono;
 
-    public ContattoReq(String cognome, String nome, String telefono) {
+    public Contatto(String cognome, String nome, String telefono) {
         this.cognome = cognome;
         this.nome = nome;
         this.telefono = telefono;
     }
 
-    public ContattoReq() {
+    public Contatto() {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long Id) {
-        this.Id = Id;
+        this.id = Id;
     }
 
     public String getCognome() {
@@ -69,7 +69,7 @@ public class ContattoReq implements Serializable {
 
     @Override
     public String toString() {
-        return "ContattoReq{" + "Id=" + Id + ", cognome=" + cognome + ", nome=" + nome + ", telefono=" + telefono + '}';
+        return "ContattoReq{" + "Id=" + id + ", cognome=" + cognome + ", nome=" + nome + ", telefono=" + telefono + '}';
     }
 
 }

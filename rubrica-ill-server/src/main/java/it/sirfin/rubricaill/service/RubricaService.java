@@ -1,7 +1,7 @@
 package it.sirfin.rubricaill.service;
 
 import it.sirfin.rubricaill.dto.ContattoRes;
-import it.sirfin.rubricaill.model.ContattoReq;
+import it.sirfin.rubricaill.model.Contatto;
 import java.util.List;
 
 /**
@@ -9,19 +9,14 @@ import java.util.List;
  */
 public interface RubricaService {
 
-    List<ContattoReq> rubricaAgg(ContattoReq reqDto);
+    List<Contatto> rubricaAgg(Contatto c);
 
-    List<ContattoReq> cancellaPerID(ContattoReq reqDto);
+    List<Contatto> cancellaPerID(Contatto c);
 
-    List<ContattoReq> rubricaSvuota();
+    List<Contatto> rubricaSvuota();
 
-    List<ContattoReq> ritornaLista();
+    List<Contatto> ritornaLista();
 
-    ContattoRes inizializzazioneAggiungi(ContattoReq reqDto);
+    List<Contatto> cercaStringa(String stringa);
 
-    ContattoRes inizializzazioneCancella(ContattoReq reqDto);
-
-    ContattoRes inizializzazioneSvuota();
-
-    ContattoRes inizializzazioneLista();
 }

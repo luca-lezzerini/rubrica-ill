@@ -5,13 +5,14 @@
  */
 package it.sirfin.rubricaill.controller;
 
+import it.sirfin.rubricaill.dto.ContattoReq;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import it.sirfin.rubricaill.dto.ContattoRes;
-import it.sirfin.rubricaill.model.ContattoReq;
+import it.sirfin.rubricaill.model.Contatto;
 import it.sirfin.rubricaill.service.RubricaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,26 +32,26 @@ public class RubricaIllController {
     /**
      * Metodo rubricaAgg() che utilizza il servizio per inserire nuovi contatti.
      *
-     * @param reqDto
+     * @param dto
      * @return
      */
     @RequestMapping("/rubricagg")
     @ResponseBody
-    public ContattoRes rubricaAgg(@RequestBody ContattoReq reqDto) {
-        return rubricaService.inizializzazioneAggiungi(reqDto);
+    public ContattoRes rubricaAgg(@RequestBody ContattoReq dto) {
+        return new ContattoRes(rubricaService.rubricaAgg(dto.getContatto()));
     }
 
     /**
      * Metodo cancellaPerID() che utilizza il servizio per cancellare i contatti
      * per id.
      *
-     * @param reqDto
+     * @param dto
      * @return
      */
     @RequestMapping("/rubricarem")
     @ResponseBody
-    public ContattoRes cancellaPerID(@RequestBody ContattoReq reqDto) {
-        return rubricaService.inizializzazioneCancella(reqDto);
+    public ContattoRes cancellaPerID(@RequestBody ContattoReq dto) {
+        return new ContattoRes(rubricaService.cancellaPerID(dto.getContatto()));
     }
 
     /**
@@ -61,7 +62,7 @@ public class RubricaIllController {
     @RequestMapping("/rubricasvu")
     @ResponseBody
     public ContattoRes rubricaSvuota() {
-        return rubricaService.inizializzazioneSvuota();
+        return new ContattoRes(rubricaService.rubricaSvuota());
     }
 
     /**
@@ -72,7 +73,13 @@ public class RubricaIllController {
     @RequestMapping("/rubricalis")
     @ResponseBody
     public ContattoRes ritornaLista() {
-        return rubricaService.inizializzazioneLista();
+        return new ContattoRes( rubricaService.ritornaLista());
+    }
+
+    @RequestMapping("/cerca-string")
+    @ResponseBody
+    public ContattoRes cercaStringa(@RequestBody ContattoReq dto) {
+         return new ContattoRes(rubricaService.cercaStringa("%"+ dto.getContatto().getNome()+ "%"));
     }
 
 }

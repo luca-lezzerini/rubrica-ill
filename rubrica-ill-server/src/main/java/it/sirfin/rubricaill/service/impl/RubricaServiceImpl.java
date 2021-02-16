@@ -6,7 +6,7 @@
 package it.sirfin.rubricaill.service.impl;
 
 import it.sirfin.rubricaill.dto.ContattoRes;
-import it.sirfin.rubricaill.model.ContattoReq;
+import it.sirfin.rubricaill.model.Contatto;
 import it.sirfin.rubricaill.repository.ContattoRepository;
 import it.sirfin.rubricaill.service.RubricaService;
 import java.util.ArrayList;
@@ -27,8 +27,6 @@ public class RubricaServiceImpl implements RubricaService {
     @Autowired
     ContattoRepository contattoRepository;
 
-    List<ContattoReq> rubrica = new ArrayList<>();
-
     /**
      * Metodo rubricaAgg() Il metodo inserisce il contatto nella rubrica. Con
      * l'utilizzo di .setId() si inserisce nel campo id di contatto il valore di
@@ -38,9 +36,9 @@ public class RubricaServiceImpl implements RubricaService {
      * @return
      */
     @Override
-    public List<ContattoReq> rubricaAgg(ContattoReq contatto) {
-        contattoRepository.save(contatto);
-        return rubrica;
+    public List<Contatto> rubricaAgg(Contatto c) {
+        contattoRepository.save(c);
+        return ritornaLista();
     }
 
     /**
@@ -51,9 +49,9 @@ public class RubricaServiceImpl implements RubricaService {
      * @return
      */
     @Override
-    public List<ContattoReq> cancellaPerID(ContattoReq contatto) {
-        contattoRepository.deleteById(contatto.getId());
-        return rubrica;
+    public List<Contatto> cancellaPerID(Contatto c) {
+        contattoRepository.delete(c);
+        return ritornaLista();
     }
 
     /**
@@ -63,10 +61,9 @@ public class RubricaServiceImpl implements RubricaService {
      * @return
      */
     @Override
-    public List<ContattoReq> rubricaSvuota() {
+    public List<Contatto> rubricaSvuota() {
         contattoRepository.deleteAllInBatch();
-        return rubrica;
-
+        return new ArrayList<>();
     }
 
     /**
@@ -75,30 +72,13 @@ public class RubricaServiceImpl implements RubricaService {
      * @return
      */
     @Override
-    public List<ContattoReq> ritornaLista() {
-        List<ContattoReq> el = contattoRepository.findAll();
-        return el;
-
+    public List<Contatto> ritornaLista() {
+        return contattoRepository.findAll();
     }
 
     @Override
-    public ContattoRes inizializzazioneAggiungi(ContattoReq reqDto) {
-        return new ContattoRes(rubricaAgg(reqDto));
-    }
-
-    @Override
-    public ContattoRes inizializzazioneCancella(ContattoReq reqDto) {
-        return new ContattoRes(cancellaPerID(reqDto));
-    }
-
-    @Override
-    public ContattoRes inizializzazioneSvuota() {
-        return new ContattoRes(rubricaSvuota());
-    }
-
-    @Override
-    public ContattoRes inizializzazioneLista() {
-        return new ContattoRes(ritornaLista());
+    public List<Contatto> cercaStringa(String stringa) {
+        return contattoRepository.findByNomeLikeOrCognomeLikeOrTelefonoLike(stringa, stringa, stringa);
     }
 
 }

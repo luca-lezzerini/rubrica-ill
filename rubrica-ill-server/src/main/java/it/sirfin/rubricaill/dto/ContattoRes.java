@@ -5,7 +5,7 @@
  */
 package it.sirfin.rubricaill.dto;
 
-import it.sirfin.rubricaill.model.ContattoReq;
+import it.sirfin.rubricaill.model.Contatto;
 import java.util.List;
 
 /**
@@ -14,20 +14,20 @@ import java.util.List;
  */
 public class ContattoRes {
 
-    List<ContattoReq> contatto;
+    List<Contatto> contatto;
 
-    public ContattoRes(List<ContattoReq> contatto) {
+    public ContattoRes(List<Contatto> contatto) {
         this.contatto = contatto;
     }
 
     public ContattoRes() {
     }
 
-    public List<ContattoReq> getContatto() {
+    public List<Contatto> getContatto() {
         return contatto;
     }
 
-    public void setContatto(List<ContattoReq> contatto) {
+    public void setContatto(List<Contatto> contatto) {
         this.contatto = contatto;
     }
 
